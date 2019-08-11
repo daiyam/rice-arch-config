@@ -1,0 +1,4 @@
+- /usr/lib/polkit-kde-authentication-agent-1
+- cmd: env GDK_BACKEND=x11 /usr/bin/ulauncher --hide-window
+  bin: ulauncher
+- /usr/bin/compton --config ~/.config/awesome/conf/compton.conf

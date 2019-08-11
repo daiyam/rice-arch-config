@@ -1,0 +1,21 @@
+all:
+  fx: reactive
+  active: ff0040
+  rest: ff0000
+  speed: 300
+logo:
+  fx: disable
+m0:
+  fx: reactive
+  active: 80ff20
+  rest: ff0040
+  speed: 300
+m4: m0
+m5: m0
+m1:
+  fx: reactive
+  active: 80ff20
+  rest: '404040'
+  speed: 300
+m2: m1
+m3: m1

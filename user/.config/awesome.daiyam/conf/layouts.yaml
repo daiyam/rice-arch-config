@@ -1,0 +1,21 @@
+- name: awful.layout.suit.tile.right
+  label: Right Tile
+  icon: layouts/tileright.svg
+- name: awful.layout.suit.tile.left
+  label: Left Tile
+  icon: layouts/tileleft.svg
+- name: awful.layout.suit.tile.bottom
+  label: Bottom Tile
+  icon: layouts/tilebottom.svg
+- name: awful.layout.suit.tile.top
+  label: Top Tile
+  icon: layouts/tiletop.svg
+- name: awful.layout.suit.fair
+  label: ↕ Fair Tile
+  icon: layouts/fair.svg
+- name: awful.layout.suit.fair.horizontal
+  label: ↔ Fair Tile
+  icon: layouts/fair.svg
+- name: awful.layout.suit.max
+  label: Maximized
+  icon: layouts/max.svg

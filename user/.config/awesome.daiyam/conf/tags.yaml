@@ -1,0 +1,15 @@
+- name: Coding
+  icon: tags/code.svg
+  layouts:
+    - awful.layout.suit.tile.right
+    - awful.layout.suit.tile.left
+    - awful.layout.suit.max
+- name: Internet
+  icon: tags/browser.svg
+- name: Game
+  icon: tags/game.svg
+  default_layout: awful.layout.suit.max
+- name: Music
+  icon: tags/music.svg
+- name: Misc
+  icon: tags/flask.svg

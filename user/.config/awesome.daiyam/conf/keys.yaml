@@ -1,0 +1,40 @@
+global:
+  - group: awesome
+    shortcuts:
+      - key: master+r
+        action: awesome.restart()
+        description: reload awesome
+  
+  - group: launcher
+    shortcuts:
+      - key: master+Return
+        action: awful.spawn(apps.terminal)
+        description: open a terminal
+  
+  - group: system
+    shortcuts:
+      - key: master+Escape
+        action: awful.widget.exitscreen.show()
+        description: show exit screen
+  
+  - group: tag
+    shortcuts:
+      - key: master+Left
+        action: awful.tag.viewprev()
+        description: view previous
+      - key: master+Right
+        action: awful.tag.viewnext()
+        description: view next
+
+  - group: apps
+    shortcuts:
+      - key: ctrl+master+v
+        cmd: vivaldi-stable
+        description: launch vivaldi
+
+client:
+  - group: Client keys
+    shortcuts:
+      - key: alt+F4
+        action: client:kill()
+        description: Close

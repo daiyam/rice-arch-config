@@ -1,0 +1,125 @@
+<!DOCTYPE gui SYSTEM 'kpartgui.dtd'>
+<gui name="filelight" version="4">
+ <MenuBar>
+  <Menu name="file" noMerge="1">
+   <text>&amp;Scan</text>
+   <Action name="scan_folder"/>
+   <Separator/>
+   <Action name="scan_home"/>
+   <Action name="scan_root"/>
+   <Separator/>
+   <Action name="scan_recent"/>
+   <Separator/>
+   <Action name="scan_rescan"/>
+   <Action name="scan_stop"/>
+   <Merge/>
+   <Separator/>
+   <Action name="file_quit"/>
+  </Menu>
+  <Menu name="view" noMerge="1">
+   <text>&amp;View</text>
+   <Action name="view_zoom_in" group="view_merge_group"/>
+   <Action name="view_zoom_out" group="view_merge_group"/>
+  </Menu>
+ </MenuBar>
+ <ToolBar name="mainToolBar">
+  <text>Main Toolbar</text>
+  <Action name="go_back"/>
+  <Action name="go_forward"/>
+  <Action name="go_up"/>
+  <Separator/>
+  <Action name="scan_rescan"/>
+  <Action name="scan_stop"/>
+ </ToolBar>
+ <ToolBar name="locationToolBar" fullWidth="true">
+  <text>Location Toolbar</text>
+  <Action name="clear_location"/>
+  <Action name="location_bar"/>
+  <Action name="go"/>
+ </ToolBar>
+ <ToolBar name="viewToolBar" hidden="true">
+  <text>View Toolbar</text>
+  <Action name="view_zoom_in"/>
+  <Action name="view_zoom_out"/>
+ </ToolBar>
+ <State name="scan_started">
+  <enable>
+   <Action name="scan_stop"/>
+  </enable>
+  <disable>
+   <Action name="scan_folder"/>
+   <Action name="scan_home"/>
+   <Action name="scan_root"/>
+   <Action name="scan_recent"/>
+   <Action name="scan_rescan"/>
+   <Action name="go_up"/>
+   <Action name="clear_location"/>
+   <Action name="location_bar"/>
+   <Action name="go"/>
+   <Action name="view_zoom_in"/>
+   <Action name="view_zoom_out"/>
+   <Action name="configure_filelight"/>
+  </disable>
+ </State>
+ <State name="scan_complete">
+  <enable>
+   <Action name="scan_folder"/>
+   <Action name="scan_home"/>
+   <Action name="scan_root"/>
+   <Action name="scan_recent"/>
+   <Action name="scan_rescan"/>
+   <Action name="go_up"/>
+   <Action name="clear_location"/>
+   <Action name="location_bar"/>
+   <Action name="go"/>
+   <Action name="view_zoom_in"/>
+   <Action name="view_zoom_out"/>
+   <Action name="configure_filelight"/>
+  </enable>
+  <disable>
+   <Action name="scan_stop"/>
+  </disable>
+ </State>
+ <State name="scan_failed">
+  <!-- only for full failure situations -->
+  <enable>
+   <Action name="scan_folder"/>
+   <Action name="scan_home"/>
+   <Action name="scan_root"/>
+   <Action name="scan_recent"/>
+   <Action name="scan_rescan"/>
+   <Action name="clear_location"/>
+   <Action name="location_bar"/>
+   <Action name="go"/>
+   <Action name="configure_filelight"/>
+  </enable>
+  <disable>
+   <Action name="scan_stop"/>
+   <Action name="go_up"/>
+   <Action name="view_zoom_in"/>
+   <Action name="view_zoom_out"/>
+  </disable>
+ </State>
+ <ActionProperties scheme="Default">
+  <Action shortcut="Meta+O" name="file_open"/>
+  <Action shortcut="Meta+Q" name="file_quit"/>
+  <Action shortcut="" name="go"/>
+  <Action shortcut="" name="go_back"/>
+  <Action shortcut="" name="go_forward"/>
+  <Action shortcut="" name="help_about_app"/>
+  <Action shortcut="" name="help_about_kde"/>
+  <Action shortcut="" name="help_donate"/>
+  <Action shortcut="" name="help_report_bug"/>
+  <Action shortcut="" name="location_bar"/>
+  <Action shortcut="Meta+Shift+," name="options_configure"/>
+  <Action shortcut="" name="options_configure_keybinding"/>
+  <Action shortcut="" name="options_configure_toolbars"/>
+  <Action shortcut="" name="scan_folder"/>
+  <Action shortcut="Meta+Home" name="scan_home"/>
+  <Action shortcut="Meta+R" name="scan_rescan"/>
+  <Action shortcut="" name="scan_root"/>
+  <Action shortcut="" name="switch_application_language"/>
+  <Action shortcut="Meta++; Meta+=" name="view_zoom_in"/>
+  <Action shortcut="Meta+-" name="view_zoom_out"/>
+ </ActionProperties>
+</gui>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE kpartgui>
+<gui version="8" library="kateprojectplugin" translationDomain="kateproject" name="kateprojectplugin">
+ <MenuBar>
+  <Menu name="projects">
+   <text>&amp;Projects</text>
+   <Action name="projects_prev_project"/>
+   <Action name="projects_next_project"/>
+   <Action name="projects_goto_index"/>
+  </Menu>
+ </MenuBar>
+ <Menu noMerge="1" name="ktexteditor_popup">
+  <Action name="popup_project"/>
+ </Menu>
+ <ActionProperties scheme="Default">
+  <Action shortcut="Meta+Alt+Right" name="projects_next_project"/>
+  <Action shortcut="Meta+Alt+Left" name="projects_prev_project"/>
+ </ActionProperties>
+</gui>
+<!-- kate: space-indent on; indent-width 4; replace-tabs on; -->

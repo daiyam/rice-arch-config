@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE kpartgui>
+<gui version="2" library="tabswitcherplugin" translationDomain="tabswitcherplugin" name="tabswitcher">
+ <MenuBar>
+  <Menu name="view">
+   <text>&amp;View</text>
+   <Action group="view_switch_tab" name="view_lru_document_next"/>
+  </Menu>
+ </MenuBar>
+ <ActionProperties scheme="Default">
+  <Action shortcut="Meta+Tab" name="view_lru_document_next"/>
+  <Action shortcut="Meta+Shift+Tab" name="view_lru_document_prev"/>
+ </ActionProperties>
+</gui>
+<!-- kate: space-indent on; indent-width 4; replace-tabs on; -->
