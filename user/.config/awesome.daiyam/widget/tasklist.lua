@@ -71,10 +71,6 @@ local function list_visible_clients(filter, screen)
 end
 
 local function render_group(group)
-	-- local widget = awful.widget.clienticon(group.clients[1])
-	
-	-- widget.forced_height = width
-	-- widget.forced_width = width
 	local widget = wibox.widget.base.make_widget()
 	
 	widget.fit = function(preview_widget, width, height)
@@ -120,6 +116,21 @@ local function render_group(group)
 	return widget
 end
 
+local function get_margin_widget()
+	local widget = wibox.widget.base.make_widget()
+	
+	widget:connect_signal(
+		"button::press",
+		function(_, lx, ly, button, mode, widget)
+			if button == 3 then
+				awful.widget.winmenu.toggle()
+			end
+		end
+	)
+	
+	return widget
+end
+
 local function render(groups, layout)
 	layout:reset()
 	
@@ -139,6 +150,8 @@ end
 
 return function(screen)
 	local tasklist = layout.center.vertical()
+	
+	tasklist:set_margin_widget(get_margin_widget())
 	
 	tasklist.spacing = dpi(5)
 	

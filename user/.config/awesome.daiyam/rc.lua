@@ -37,7 +37,8 @@ end
 beautiful.init(awful.util.get_configuration_dir() .. "theme/init.lua")
 
 local apps = {
-	terminal = "kitty"
+	fm			= "dolphin",
+	terminal	= "kitty"
 }
 
 -- Default modkey.
@@ -124,6 +125,8 @@ end)
 require("widget.alttab")("Mod1")
 
 require("widget.exitscreen")
+
+require("widget.winmenu")(apps)
 -- }}}
 
 -- {{{ Autostart

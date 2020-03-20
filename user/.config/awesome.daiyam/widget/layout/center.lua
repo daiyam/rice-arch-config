@@ -6,7 +6,9 @@ local center = {}
 
 function center:layout(context, width, height)
 	local result = {}
-	local pos, spacing = 0, self._private.spacing
+	local pos = 0
+	local spacing = self._private.spacing
+	local margin_widget = self._private.margin_widget
 	local spacing_widget = self._private.spacing_widget
 	local is_y = self._private.dir == "y"
 	local is_x = not is_y
@@ -41,6 +43,10 @@ function center:layout(context, width, height)
 		dx = math.floor((width - pos) / 2)
 	end
 	
+	if margin_widget ~= nil then
+		table.insert(result, base.place_widget_at(margin_widget, 0, 0, is_x and dx or width, is_y and dy or height))
+	end
+	
 	for k, v in pairs(self._private.widgets) do
 		x, y, w, h = unpack(coords[k])
 		
@@ -58,6 +64,10 @@ function center:layout(context, width, height)
 		end
 		
 		table.insert(result, base.place_widget_at(v, x, y, w, h))
+	end
+	
+	if margin_widget ~= nil then
+		table.insert(result, base.place_widget_at(margin_widget, is_x and x + w or 0, is_y and y + h or 0, is_x and dx or width, is_y and dy or height))
 	end
 	
 	return result
@@ -190,6 +200,11 @@ function center:set(index, widget2)
 	return true
 end
 
+function center:set_margin_widget(wdg)
+	self._private.margin_widget = base.make_widget_from_value(wdg)
+	self:emit_signal("widget::layout_changed")
+end
+
 function center:set_spacing_widget(wdg)
 	self._private.spacing_widget = base.make_widget_from_value(wdg)
 	self:emit_signal("widget::layout_changed")
@@ -240,6 +255,7 @@ function center:fit(context, orig_width, orig_height)
 	if self._private.dir == "y" then
 		return used_max, used_in_dir + spacing
 	end
+
 	return used_in_dir + spacing, used_max
 end
 
@@ -248,7 +264,6 @@ function center:reset()
 	self:emit_signal("widget::layout_changed")
 	self:emit_signal("widget::reseted")
 end
-
 
 local function get_layout(dir, widget1, ...)
 	local ret = base.make_widget(nil, nil, {enable_properties = true})
